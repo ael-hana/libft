@@ -6,7 +6,7 @@
 /*   By: ael-hana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/24 03:26:02 by ael-hana          #+#    #+#             */
-/*   Updated: 2015/11/24 03:40:14 by ael-hana         ###   ########.fr       */
+/*   Updated: 2015/11/25 04:19:57 by ael-hana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,10 @@
 
 size_t		ft_strlen(const char *s)
 {
-	int		i;
+	size_t	i;
 
 	i = 0;
-	while (s[++i]);
+	while (s[i])
+		i += 1;
 	return (i);
 }

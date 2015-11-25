@@ -1,29 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ael-hana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/24 02:55:11 by ael-hana          #+#    #+#             */
-/*   Updated: 2015/11/25 04:04:34 by ael-hana         ###   ########.fr       */
+/*   Created: 2015/11/25 00:49:42 by ael-hana          #+#    #+#             */
+/*   Updated: 2015/11/25 01:13:33 by ael-hana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_memcmp(const void *s1, const void *s2, size_t n)
+char	*ft_strnstr(const char *s1, const char *s2, size_t n)
 {
-	char	*ptr1;
-	char	*ptr2;
+	char	*str1;
+	char	*str2;
+	int		i;
 
-	ptr1 = (char *)s1;
-	ptr2 = (char *)s2;
-	while ((0 < n) && (*ptr1 == *ptr2))
+	str1 = (char *)s1;
+	str2 = (char *)s2;
+	while (*str1 && *str2 && n > 0)
 	{
-		n--;
-		ptr1++;
-		ptr2++;
+		i = 0;
+		--n;
+		while (str1[i] != '\0' && str1[i] == str2[i])
+			i += 1;
+		if ((n - i) <= 0)
+			return (NULL);
+		if (!str2[i])
+			return (str1);
+		++str1;
 	}
-	return (*ptr1 - *ptr2);
+	if (*s2 == '\0' && *s2 == *s1)
+		return ((char *)s1);
+	return (NULL);
 }

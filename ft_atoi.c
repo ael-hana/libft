@@ -1,29 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ael-hana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/24 02:55:11 by ael-hana          #+#    #+#             */
-/*   Updated: 2015/11/25 04:04:34 by ael-hana         ###   ########.fr       */
+/*   Created: 2015/11/25 01:57:03 by ael-hana          #+#    #+#             */
+/*   Updated: 2015/11/25 02:05:51 by ael-hana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_memcmp(const void *s1, const void *s2, size_t n)
+int		ft_atoi(const char *str)
 {
-	char	*ptr1;
-	char	*ptr2;
+	int	num;
 
-	ptr1 = (char *)s1;
-	ptr2 = (char *)s2;
-	while ((0 < n) && (*ptr1 == *ptr2))
+	num = 0;
+	while ((*str - '0') >= 0 && (*str - '9') <= 9)
 	{
-		n--;
-		ptr1++;
-		ptr2++;
+		num *= 10;
+		num += (*str - '0');
+		++str;
 	}
-	return (*ptr1 - *ptr2);
+	return (num);
 }
