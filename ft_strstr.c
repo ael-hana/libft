@@ -6,7 +6,7 @@
 /*   By: ael-hana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/25 00:17:34 by ael-hana          #+#    #+#             */
-/*   Updated: 2015/11/25 01:18:01 by ael-hana         ###   ########.fr       */
+/*   Updated: 2015/11/25 21:08:16 by ael-hana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,9 @@ char	*ft_strstr(const char *s1, const char *s2)
 
 	str1 = (char *)s1;
 	str2 = (char *)s2;
-	while (*str1 && *str2)
+	if (!*str1)
+		return (str1);
+	while (*str1)
 	{
 		i = 0;
 		while (str1[i] != '\0' && str1[i] == str2[i])
@@ -29,7 +31,5 @@ char	*ft_strstr(const char *s1, const char *s2)
 			return (str1);
 		++str1;
 	}
-	if (*s2 == '\0' && *s2 == *s1)
-		return ((char *)s1);
 	return (NULL);
 }
