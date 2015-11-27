@@ -6,7 +6,7 @@
 /*   By: ael-hana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/24 04:05:35 by ael-hana          #+#    #+#             */
-/*   Updated: 2015/11/24 06:11:53 by ael-hana         ###   ########.fr       */
+/*   Updated: 2015/11/27 09:36:20 by ael-hana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,6 @@ char	*ft_strcpy(char *dst, const char *src)
 		dst[i] = src[i];
 		i += 1;
 	}
-	dst[i] = src[i];
+	dst[i] = '\0';
 	return (dst);
 }
