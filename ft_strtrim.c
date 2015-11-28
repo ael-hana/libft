@@ -6,48 +6,50 @@
 /*   By: ael-hana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/27 06:02:43 by ael-hana          #+#    #+#             */
-/*   Updated: 2015/11/27 09:36:19 by ael-hana         ###   ########.fr       */
+/*   Updated: 2015/11/28 20:16:13 by ael-hana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t		ft_strlen_without_this_chr(char *str, char c, char v, char b)
+static char		*ft_cpystr(char *dst, const char *src, size_t n)
 {
 	size_t	i;
 
 	i = 0;
-	while (*str == c || *str == v || *str == b)
-		str++;
-	while ((*str) && !(*str == c || *str == v || *str == b))
+	if (!dst || !src)
+		return (NULL);
+	while (n > i && src[i])
 	{
+		dst[i] = src[i];
 		i += 1;
-		++str;
 	}
-	return (i);
+	dst[i] = '\0';
+	return (dst);
 }
 
-char				*ft_strtrim(char const *s)
+char		*ft_strtrim(char const *s)
 {
-	char			*ptr;
-	unsigned int	i;
+	int		i;
+	int		j;
+	char	*ptr;
 
-	ptr = malloc(sizeof(char) *
-				(1 + ft_strlen_without_this_chr((char *)s, ' ', '\n', '\t')));
-	if (!s || !ptr)
-		return (NULL);
-	while ((*s == ' ' || *s == '\n' || *s == '\t'))
-		s++;
 	i = 0;
-	while (*s)
+	if (!s)
+		return (NULL);
+	j = ft_strlen(s)-1;
+	while (j >= 0 && (s[j] == ' ' || s[j] == '\n' || s[j] == '\t'))
+		j--;
+	while (s[i] == ' ' || s[i] == '\n' || s[i] == '\t')
 	{
-		if (!(*s == ' ' || *s == '\n' || *s == '\t'))
-		{
-			ptr[i] = *s;
-			i += 1;
-		}
-		s++;
+		i++;
+		j--;
 	}
-	ptr[i] = '\0';
-	return (ptr);
+	if (++j < 0)
+		j = 0;
+	if (0 >= (i + j))
+		return (NULL);
+	if ((ptr = (char *)malloc(sizeof(char) * 1 + j)))
+		return (ft_cpystr(ptr, s + i, j));
+	return (NULL);
 }

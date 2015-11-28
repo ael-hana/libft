@@ -6,7 +6,7 @@
 /*   By: ael-hana <ael-hana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/23 16:37:02 by ael-hana          #+#    #+#             */
-/*   Updated: 2015/11/27 09:36:22 by ael-hana         ###   ########.fr       */
+/*   Updated: 2015/11/27 20:29:23 by ael-hana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <string.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include <stdio.h>
 
 void	*ft_memset(void *b, int c, size_t len);
 void	ft_bzero(void *s, size_t n);
