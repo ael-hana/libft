@@ -1,25 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ael-hana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/24 23:29:10 by ael-hana          #+#    #+#             */
-/*   Updated: 2015/11/30 05:41:14 by ael-hana         ###   ########.fr       */
+/*   Created: 2015/11/30 09:07:34 by ael-hana          #+#    #+#             */
+/*   Updated: 2015/11/30 09:11:20 by ael-hana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+void	ft_putchar_fd(char c, int fd)
 {
-	char	*ptr;
-
-	ptr = (char *)s;
-	while (*ptr && (*ptr != (char)c))
-		ptr++;
-	if (*ptr == (char)c)
-		return (ptr);
-	return (NULL);
+	write(fd, &c, 1);
 }

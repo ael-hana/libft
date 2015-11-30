@@ -6,7 +6,7 @@
 /*   By: ael-hana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/27 06:02:43 by ael-hana          #+#    #+#             */
-/*   Updated: 2015/11/28 20:16:13 by ael-hana         ###   ########.fr       */
+/*   Updated: 2015/11/29 15:39:16 by ael-hana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ char		*ft_strtrim(char const *s)
 		j = 0;
 	if (0 >= (i + j))
 		return (NULL);
-	if ((ptr = (char *)malloc(sizeof(char) * 1 + j)))
+	if ((ptr = (char *)malloc(sizeof(char) * 2 + j)))
 		return (ft_cpystr(ptr, s + i, j));
 	return (NULL);
 }
