@@ -6,7 +6,7 @@
 /*   By: ael-hana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/27 06:02:43 by ael-hana          #+#    #+#             */
-/*   Updated: 2015/11/29 15:39:16 by ael-hana         ###   ########.fr       */
+/*   Updated: 2015/12/02 18:21:54 by ael-hana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static char		*ft_cpystr(char *dst, const char *src, size_t n)
 {
-	size_t	i;
+	size_t		i;
 
 	i = 0;
 	if (!dst || !src)
@@ -28,16 +28,18 @@ static char		*ft_cpystr(char *dst, const char *src, size_t n)
 	return (dst);
 }
 
-char		*ft_strtrim(char const *s)
+char			*ft_strtrim(char const *s)
 {
-	int		i;
-	int		j;
-	char	*ptr;
+	int			i;
+	int			j;
+	char		*ptr;
 
 	i = 0;
 	if (!s)
 		return (NULL);
-	j = ft_strlen(s)-1;
+	if (!*s)
+		return ("");
+	j = ft_strlen(s) - 1;
 	while (j >= 0 && (s[j] == ' ' || s[j] == '\n' || s[j] == '\t'))
 		j--;
 	while (s[i] == ' ' || s[i] == '\n' || s[i] == '\t')

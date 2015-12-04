@@ -1,30 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_nb.c                                     :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ael-hana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/30 09:29:35 by ael-hana          #+#    #+#             */
-/*   Updated: 2015/12/03 02:18:25 by ael-hana         ###   ########.fr       */
+/*   Created: 2015/12/01 19:30:06 by ael-hana          #+#    #+#             */
+/*   Updated: 2015/12/01 22:06:25 by ael-hana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr_fd(int n, int fd)
+t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 {
-	if (n == -2147483648)
+	t_list	*ptr;
+	t_list	*tmp2;
+	void	*tmp;
+
+	ptr = (*f)(lst);
+	if ((tmp = ft_lstnew(ptr->content, ptr->content_size)))
 	{
-		write(fd, "-2147483648", 11);
-		return ;
+		tmp2 = (t_list *)tmp;
+		lst = lst->next;
+		while (lst)
+		{
+			ptr = (*f)(lst);
+			if (!(tmp2->next = ft_lstnew(ptr->content, ptr->content_size)))
+				return (NULL);
+			tmp2 = tmp2->next;
+			lst = lst->next;
+		}
 	}
-	if (n < 0)
-	{
-		ft_putchar_fd('-', fd);
-		n *= -1;
-	}
-	if (n / 10)
-		ft_putnbr_fd(n / 10, fd);
-	ft_putchar_fd((n % 10) + '0', fd);
+	return ((t_list *)tmp);
 }

@@ -6,7 +6,7 @@
 /*   By: ael-hana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/29 20:25:36 by ael-hana          #+#    #+#             */
-/*   Updated: 2015/11/30 08:57:36 by ael-hana         ###   ########.fr       */
+/*   Updated: 2015/12/03 02:15:57 by ael-hana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 static unsigned int		ft_strlen_num(int num)
 {
-	int				div;
-	unsigned int	i;
+	int					div;
+	unsigned int		i;
 
 	div = 10;
 	i = 1;
@@ -27,9 +27,9 @@ static unsigned int		ft_strlen_num(int num)
 	return (i);
 }
 
-static char			*ft_num_in_str(unsigned long div, int n, char *str)
+static char				*ft_num_in_str(unsigned long div, int n, char *str)
 {
-	int				i;
+	int					i;
 
 	i = 0;
 	while (n / div)
@@ -45,31 +45,31 @@ static char			*ft_num_in_str(unsigned long div, int n, char *str)
 	return (str);
 }
 
-static char	*ft_exeption(int n)
+static char				*ft_exeption(int n)
 {
-	char	*str;
+	char				*str;
 
 	if (n == -2147483648)
 	{
 		if ((str = (char *)malloc(sizeof(char) * ft_strlen("-2147483648"))))
-			return (ft_strcpy(str,"-2147483648"));
+			return (ft_strcpy(str, "-2147483648"));
 		else
 			return (NULL);
 	}
 	if (n == 2147483647)
 	{
 		if ((str = (char *)malloc(sizeof(char) * ft_strlen("2147483647"))))
-			return (ft_strcpy(str,"2147483647"));
+			return (ft_strcpy(str, "2147483647"));
 		else
 			return (NULL);
 	}
 	return (NULL);
 }
 
-char				*ft_itoa(int n)
+char					*ft_itoa(int n)
 {
-	char			*str;
-	unsigned int	i;
+	char				*str;
+	unsigned int		i;
 
 	if ((str = ft_exeption(n)))
 		return (str);
@@ -78,7 +78,7 @@ char				*ft_itoa(int n)
 		n *= -1;
 		i = 1 + ft_strlen_num(n);
 	}
-	else 
+	else
 		i = ft_strlen_num(n);
 	if (!(str = (char *)malloc(sizeof(char) * (1 + i))))
 		return (NULL);

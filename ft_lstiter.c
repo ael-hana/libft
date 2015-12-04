@@ -1,30 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_nb.c                                     :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ael-hana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/30 09:29:35 by ael-hana          #+#    #+#             */
-/*   Updated: 2015/12/03 02:18:25 by ael-hana         ###   ########.fr       */
+/*   Created: 2015/12/01 19:20:04 by ael-hana          #+#    #+#             */
+/*   Updated: 2015/12/01 19:23:05 by ael-hana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr_fd(int n, int fd)
+void	ft_lstiter(t_list *lst, void (*f)(t_list *elem))
 {
-	if (n == -2147483648)
+	while (lst->next)
 	{
-		write(fd, "-2147483648", 11);
-		return ;
+		f(lst);
+		lst = lst->next;
 	}
-	if (n < 0)
-	{
-		ft_putchar_fd('-', fd);
-		n *= -1;
-	}
-	if (n / 10)
-		ft_putnbr_fd(n / 10, fd);
-	ft_putchar_fd((n % 10) + '0', fd);
+	f(lst);
+	lst = lst->next;
 }

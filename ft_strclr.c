@@ -6,7 +6,7 @@
 /*   By: ael-hana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/27 01:25:15 by ael-hana          #+#    #+#             */
-/*   Updated: 2015/11/27 01:28:36 by ael-hana         ###   ########.fr       */
+/*   Updated: 2015/12/03 02:19:48 by ael-hana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,6 @@
 void	ft_strclr(char *s)
 {
 	if (!s)
-		return;
+		return ;
 	ft_bzero((void *)s, ft_strlen(s));
 }
