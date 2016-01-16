@@ -69,7 +69,7 @@ SRC=ft_memset.c \
 OBJ=$(SRC:.c=.o)
 
 $(NAME):
-	$(CC) -c $(SRC)
+	$(CC) $(CFLAGS) -c $(SRC)
 	ar rc $(NAME) $(OBJ)
 	ranlib $(NAME)
 
