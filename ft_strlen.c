@@ -12,12 +12,21 @@
 
 #include "libft.h"
 
-size_t		ft_strlen(const char *s)
+size_t				ft_strlen(const char *s)
 {
-	size_t	i;
+	unsigned int	*i;
 
-	i = 0;
-	while (s[i])
-		i += 1;
-	return (i);
+	i = (unsigned int *)s;
+	while (42)
+	{
+		if (!(*i & 0xFF))
+			return ((unsigned char*)i - (unsigned char *)s);
+		if (!(*i & 0xFF00))
+			return ((unsigned char*)i - (unsigned char *)s + 1);
+		if (!(*i & 0xFF0000))
+			return ((unsigned char*)i - (unsigned char *)s + 2);
+		if (!(*i & 0xFF000000))
+			return ((unsigned char*)i - (unsigned char *)s + 3);
+		++i;
+	}
 }
